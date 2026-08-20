@@ -19,3 +19,13 @@ tasks:
   check:repo:
     desc: Run repository checks
     deps: [format]
+
+  ui:workbench:
+    desc: Start the Svelte component workbench
+    cmds:
+      - pnpm --dir packages/ui-svelte exec storybook dev -c .storybook --port 6006
+
+  ui:workbench:build:
+    desc: Build the Svelte component workbench
+    cmds:
+      - pnpm --dir packages/ui-svelte exec storybook build -c .storybook -o storybook-static
