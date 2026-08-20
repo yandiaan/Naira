@@ -8,6 +8,10 @@
     "test": "vitest run",
     "build": "svelte-check --tsconfig ./tsconfig.json"
   },
+  "exports": {
+    ".": "./src/index.ts",
+    "./styles.css": "./src/styles.css"
+  },
   "dependencies": {
     "@naira/design-tokens": "workspace:*"
   },

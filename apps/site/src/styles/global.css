@@ -1,0 +1,32 @@
+@import '@naira/design-tokens/tokens.css';
+@import '@naira/ui-svelte/styles.css';
+
+:root {
+  font-family: var(--naira-typography-font-family-sans);
+  color: var(--naira-color-content-default);
+  background: var(--naira-color-surface-default);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--naira-color-surface-default);
+}
+
+.skip-link {
+  position: absolute;
+  top: -4rem;
+  left: var(--naira-spacing-4);
+  z-index: 2;
+  background: var(--naira-color-content-default);
+  color: var(--naira-color-surface-default);
+  padding: var(--naira-spacing-2) var(--naira-spacing-3);
+}
+
+.skip-link:focus {
+  top: var(--naira-spacing-2);
+}

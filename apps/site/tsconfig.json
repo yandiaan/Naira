@@ -1,0 +1,5 @@
+{
+  "extends": "@naira/tsconfig/base.json",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
+}

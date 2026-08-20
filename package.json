@@ -19,6 +19,7 @@
     "eslint": "10.8.1",
     "husky": "9.1.7",
     "prettier": "3.9.6",
+    "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-svelte": "4.1.1",
     "storybook": "10.5.10",
     "typescript": "6.0.3",
