@@ -34,3 +34,22 @@ tasks:
     desc: Run public and workspace browser smoke tests
     cmds:
       - pnpm exec playwright test
+
+  api:format:
+    desc: Format Go source
+    dir: services/api
+    cmds:
+      - gofmt -w .
+
+  api:test:
+    desc: Run Go tests
+    dir: services/api
+    cmds:
+      - go test ./...
+
+  api:build:
+    desc: Build API and worker
+    dir: services/api
+    cmds:
+      - go build ./cmd/api
+      - go build ./cmd/worker
