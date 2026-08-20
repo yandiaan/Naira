@@ -5,7 +5,7 @@
   "scripts": {
     "format": "prettier --check .",
     "format:write": "prettier --write .",
-    "check:repo": "pnpm run format",
+    "check:repo": "task check:repo",
     "prepare": "husky"
   },
   "devDependencies": {

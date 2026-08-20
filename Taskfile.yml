@@ -1,0 +1,21 @@
+version: '3'
+
+tasks:
+  format:
+    desc: Check formatting
+    cmds:
+      - pnpm exec prettier --check .
+
+  format:write:
+    desc: Format repository files
+    cmds:
+      - pnpm exec prettier --write .
+
+  commitlint:
+    desc: Check the latest commit message
+    cmds:
+      - pnpm exec commitlint --from=HEAD~1 --to=HEAD
+
+  check:repo:
+    desc: Run repository checks
+    deps: [format]
