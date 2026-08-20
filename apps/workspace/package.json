@@ -1,0 +1,30 @@
+{
+  "name": "workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "test": "svelte-kit sync && vitest run"
+  },
+  "dependencies": {
+    "@naira/design-tokens": "workspace:*",
+    "@naira/ui-svelte": "workspace:*",
+    "@sveltejs/adapter-node": "5.5.7",
+    "@sveltejs/kit": "2.70.3",
+    "svelte": "5.56.9"
+  },
+  "devDependencies": {
+    "@naira/tsconfig": "workspace:*",
+    "@sveltejs/vite-plugin-svelte": "7.3.0",
+    "@types/node": "26.2.0",
+    "jsdom": "30.0.1",
+    "svelte-check": "4.7.6",
+    "typescript": "6.0.3",
+    "vite": "8.2.1",
+    "vitest": "4.1.11"
+  }
+}
