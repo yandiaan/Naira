@@ -1,0 +1,21 @@
+{
+  "name": "@naira/design-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "vitest run",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@naira/tsconfig": "workspace:*",
+    "@types/node": "26.2.0",
+    "vitest": "4.1.11"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens.css": "./src/generated/tokens.css",
+    "./tokens.dart": "./src/generated/tokens.dart"
+  }
+}

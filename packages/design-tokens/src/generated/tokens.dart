@@ -1,0 +1,38 @@
+class NairaTokens {
+  NairaTokens._();
+  static const colorNeutral0 = '#ffffff';
+  static const colorNeutral50 = '#f9fafb';
+  static const colorNeutral200 = '#e5e7eb';
+  static const colorNeutral700 = '#374151';
+  static const colorNeutral950 = '#111827';
+  static const colorBrand600 = '#2563eb';
+  static const colorSuccess600 = '#16a34a';
+  static const colorDanger600 = '#dc2626';
+  static const colorWarning600 = '#d97706';
+  static const colorSurfaceDefault = '#ffffff';
+  static const colorSurfaceSubtle = '#f9fafb';
+  static const colorContentDefault = '#111827';
+  static const colorContentMuted = '#374151';
+  static const colorBorderDefault = '#e5e7eb';
+  static const colorActionPrimary = '#2563eb';
+  static const colorFeedbackSuccess = '#16a34a';
+  static const colorFeedbackDanger = '#dc2626';
+  static const colorFeedbackWarning = '#d97706';
+  static const spacing1 = '0.25rem';
+  static const spacing2 = '0.5rem';
+  static const spacing3 = '0.75rem';
+  static const spacing4 = '1rem';
+  static const spacing6 = '1.5rem';
+  static const spacing8 = '2rem';
+  static const radiusSm = '0.25rem';
+  static const radiusMd = '0.5rem';
+  static const radiusLg = '0.75rem';
+  static const radiusFull = '9999px';
+  static const typographyFontFamilySans = 'Inter, ui-sans-serif, system-ui, sans-serif';
+  static const typographyFontSizeSm = '0.875rem';
+  static const typographyFontSizeBase = '1rem';
+  static const typographyFontSizeLg = '1.125rem';
+  static const typographyFontSize2xl = '1.5rem';
+  static const motionDurationFast = '120ms';
+  static const motionDurationNormal = '200ms';
+}

@@ -1,0 +1,37 @@
+:root {
+  --naira-color-neutral-0: #ffffff;
+  --naira-color-neutral-50: #f9fafb;
+  --naira-color-neutral-200: #e5e7eb;
+  --naira-color-neutral-700: #374151;
+  --naira-color-neutral-950: #111827;
+  --naira-color-brand-600: #2563eb;
+  --naira-color-success-600: #16a34a;
+  --naira-color-danger-600: #dc2626;
+  --naira-color-warning-600: #d97706;
+  --naira-color-surface-default: #ffffff;
+  --naira-color-surface-subtle: #f9fafb;
+  --naira-color-content-default: #111827;
+  --naira-color-content-muted: #374151;
+  --naira-color-border-default: #e5e7eb;
+  --naira-color-action-primary: #2563eb;
+  --naira-color-feedback-success: #16a34a;
+  --naira-color-feedback-danger: #dc2626;
+  --naira-color-feedback-warning: #d97706;
+  --naira-spacing-1: 0.25rem;
+  --naira-spacing-2: 0.5rem;
+  --naira-spacing-3: 0.75rem;
+  --naira-spacing-4: 1rem;
+  --naira-spacing-6: 1.5rem;
+  --naira-spacing-8: 2rem;
+  --naira-radius-sm: 0.25rem;
+  --naira-radius-md: 0.5rem;
+  --naira-radius-lg: 0.75rem;
+  --naira-radius-full: 9999px;
+  --naira-typography-font-family-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --naira-typography-font-size-sm: 0.875rem;
+  --naira-typography-font-size-base: 1rem;
+  --naira-typography-font-size-lg: 1.125rem;
+  --naira-typography-font-size-2xl: 1.5rem;
+  --naira-motion-duration-fast: 120ms;
+  --naira-motion-duration-normal: 200ms;
+}
