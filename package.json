@@ -1,0 +1,13 @@
+{
+  "name": "naira",
+  "private": true,
+  "packageManager": "pnpm@11.2.2",
+  "scripts": {
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "check:repo": "pnpm run format"
+  },
+  "devDependencies": {
+    "prettier": "3.9.6"
+  }
+}
