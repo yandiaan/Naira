@@ -1,0 +1,22 @@
+{
+  "components": [
+    { "name": "api", "path": "services/api", "versionFile": "services/api/VERSION" },
+    { "name": "site", "path": "apps/site", "versionFile": "apps/site/package.json" },
+    { "name": "workspace", "path": "apps/workspace", "versionFile": "apps/workspace/package.json" },
+    {
+      "name": "api-contracts",
+      "path": "packages/api-contracts",
+      "versionFile": "packages/api-contracts/package.json"
+    },
+    {
+      "name": "design-tokens",
+      "path": "packages/design-tokens",
+      "versionFile": "packages/design-tokens/package.json"
+    },
+    {
+      "name": "ui-svelte",
+      "path": "packages/ui-svelte",
+      "versionFile": "packages/ui-svelte/package.json"
+    }
+  ]
+}

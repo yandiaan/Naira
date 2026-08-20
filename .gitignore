@@ -11,6 +11,7 @@ coverage/
 test-results/
 playwright-report/
 storybook-static/
+ci-artifacts/
 .task/
 bin/
 tmp/
