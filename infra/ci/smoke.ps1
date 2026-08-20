@@ -1,4 +1,5 @@
 $ErrorActionPreference = 'Stop'
+$PSNativeCommandUseErrorActionPreference = $true
 
 $checks = @(
   @{ Url = 'http://127.0.0.1:8080/health/live'; Name = 'API liveness' },
