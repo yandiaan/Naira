@@ -15,7 +15,6 @@ import (
 	"naira/services/api/internal/platform/health"
 	postgresplatform "naira/services/api/internal/platform/postgres"
 	redisplatform "naira/services/api/internal/platform/redis"
-	"naira/services/api/internal/platform/storage"
 	"naira/services/api/internal/transport/httpx"
 )
 
@@ -50,7 +49,6 @@ func run() error {
 	checkers := []health.Checker{
 		postgresplatform.HealthChecker(postgresPool),
 		redisplatform.HealthChecker(redisClient),
-		storage.DisabledHealthChecker(),
 	}
 
 	server := &http.Server{

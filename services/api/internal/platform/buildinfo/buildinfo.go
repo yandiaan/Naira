@@ -7,11 +7,17 @@ type BuildInfo struct {
 	BuildTime string `json:"buildTime"`
 }
 
+var (
+	Version   = "0.1.0-dev"
+	GitSHA    = "unknown"
+	BuildTime = "unknown"
+)
+
 func Default() BuildInfo {
 	return BuildInfo{
 		Service:   "naira-api",
-		Version:   "0.1.0-dev",
-		GitSHA:    "unknown",
-		BuildTime: "unknown",
+		Version:   Version,
+		GitSHA:    GitSHA,
+		BuildTime: BuildTime,
 	}
 }
