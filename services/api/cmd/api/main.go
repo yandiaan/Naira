@@ -12,6 +12,10 @@ import (
 
 	"naira/services/api/internal/platform/buildinfo"
 	"naira/services/api/internal/platform/config"
+	"naira/services/api/internal/platform/health"
+	postgresplatform "naira/services/api/internal/platform/postgres"
+	redisplatform "naira/services/api/internal/platform/redis"
+	"naira/services/api/internal/platform/storage"
 	"naira/services/api/internal/transport/httpx"
 )
 
@@ -28,9 +32,30 @@ func run() error {
 		return err
 	}
 
+	bootstrapCtx, cancelBootstrap := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancelBootstrap()
+
+	postgresPool, err := postgresplatform.New(bootstrapCtx, cfg.DatabaseURL)
+	if err != nil {
+		return err
+	}
+	defer postgresPool.Close()
+
+	redisClient, err := redisplatform.New(cfg.RedisURL)
+	if err != nil {
+		return err
+	}
+	defer redisClient.Close()
+
+	checkers := []health.Checker{
+		postgresplatform.HealthChecker(postgresPool),
+		redisplatform.HealthChecker(redisClient),
+		storage.DisabledHealthChecker(),
+	}
+
 	server := &http.Server{
 		Addr:              cfg.HTTPAddress,
-		Handler:           httpx.NewRouter(buildinfo.Default(), nil),
+		Handler:           httpx.NewRouter(buildinfo.Default(), checkers),
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 

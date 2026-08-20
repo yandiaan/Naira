@@ -1,8 +1,10 @@
 package httpx
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"strings"
@@ -10,6 +12,7 @@ import (
 
 	"naira/services/api/internal/platform/buildinfo"
 	apperrors "naira/services/api/internal/platform/errors"
+	"naira/services/api/internal/platform/health"
 )
 
 func TestErrorResponseUsesStableEnvelope(t *testing.T) {
@@ -79,5 +82,24 @@ func TestVersionReturnsBuildInfo(t *testing.T) {
 	}
 	if actual != info {
 		t.Fatalf("version = %#v, want %#v", actual, info)
+	}
+}
+
+func TestReadyHealthReturnsUnavailableDependency(t *testing.T) {
+	handler := NewRouter(buildinfo.Default(), []health.Checker{
+		health.CheckFunc{
+			CheckName: "postgres",
+			CheckFn: func(context.Context) error {
+				return fmt.Errorf("connection refused")
+			},
+		},
+	})
+	request := httptest.NewRequest(http.MethodGet, "/health/ready", nil)
+	response := httptest.NewRecorder()
+
+	handler.ServeHTTP(response, request)
+
+	if response.Code != http.StatusServiceUnavailable {
+		t.Fatalf("status = %d, want %d", response.Code, http.StatusServiceUnavailable)
 	}
 }
