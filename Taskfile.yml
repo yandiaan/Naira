@@ -29,3 +29,8 @@ tasks:
     desc: Build the Svelte component workbench
     cmds:
       - pnpm --dir packages/ui-svelte exec storybook build -c .storybook -o storybook-static
+
+  web:test:e2e:
+    desc: Run public and workspace browser smoke tests
+    cmds:
+      - pnpm exec playwright test
