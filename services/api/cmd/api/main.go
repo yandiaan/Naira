@@ -10,7 +10,9 @@ import (
 	"syscall"
 	"time"
 
+	"naira/services/api/internal/platform/buildinfo"
 	"naira/services/api/internal/platform/config"
+	"naira/services/api/internal/transport/httpx"
 )
 
 func main() {
@@ -28,7 +30,7 @@ func run() error {
 
 	server := &http.Server{
 		Addr:              cfg.HTTPAddress,
-		Handler:           http.NewServeMux(),
+		Handler:           httpx.NewRouter(buildinfo.Default(), nil),
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 
