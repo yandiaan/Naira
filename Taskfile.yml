@@ -60,6 +60,24 @@ tasks:
     cmds:
       - go run ./cmd/migrate
 
+  api:worker:test:
+    desc: Test worker lifecycle
+    dir: services/api
+    cmds:
+      - go test ./internal/platform/jobs
+
+  api:run:
+    desc: Run API locally
+    dir: services/api
+    cmds:
+      - go run ./cmd/api
+
+  api:worker:
+    desc: Run worker locally
+    dir: services/api
+    cmds:
+      - go run ./cmd/worker
+
   api:contract:check:
     desc: Validate and test the OpenAPI contract
     cmds:

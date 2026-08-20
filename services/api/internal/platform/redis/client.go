@@ -37,6 +37,22 @@ func (c *Client) Set(ctx context.Context, namespace string, key string, value an
 	return c.client.Set(ctx, NamespacedKey(namespace, key), value, ttl).Err()
 }
 
+func (c *Client) Push(ctx context.Context, namespace string, payload []byte) error {
+	return c.client.RPush(ctx, NamespacedKey(namespace, "queue"), payload).Err()
+}
+
+func (c *Client) BlockingPop(ctx context.Context, namespace string) ([]byte, error) {
+	values, err := c.client.BLPop(ctx, 0, NamespacedKey(namespace, "queue")).Result()
+	if err != nil {
+		return nil, err
+	}
+	if len(values) != 2 {
+		return nil, fmt.Errorf("unexpected queue response")
+	}
+
+	return []byte(values[1]), nil
+}
+
 func NamespacedKey(namespace string, key string) string {
 	return "naira:" + namespace + ":" + key
 }
