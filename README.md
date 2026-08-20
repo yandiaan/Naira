@@ -41,9 +41,16 @@ task dev
 task check
 task test
 task test:integration
+task build
+task docker:build
+task security
+task sbom
+task release
 ```
 
 The API, site, workspace, and Compose commands are added as each foundation subsystem is installed. Read AGENTS.md and the .agents guides before changing code.
+
+Docker image, Compose, security, SBOM, and release commands require Docker Desktop, the Compose plugin, and Trivy where applicable. CI providers should invoke the same Taskfile commands rather than duplicating them.
 
 ## Quality bar
 

@@ -78,6 +78,84 @@ tasks:
     cmds:
       - go run ./cmd/worker
 
+  release:validate:
+    desc: Validate a semantic release tag
+    cmds:
+      - pnpm release:validate --tag v0.1.0
+
+  release:version:
+    desc: Print build version metadata
+    cmds:
+      - pnpm release:version
+
+  check:
+    desc: Run full validation checks
+    cmds:
+      - cmd: powershell -File infra/ci/validate.ps1
+        platforms: [windows]
+      - cmd: sh infra/ci/validate.sh
+        platforms: [linux, darwin]
+
+  test:
+    desc: Run unit and package tests
+    deps: [check]
+
+  test:integration:
+    desc: Run dependency-backed integration tests
+    cmds:
+      - cmd: powershell -File infra/ci/integration.ps1
+        platforms: [windows]
+      - cmd: sh infra/ci/integration.sh
+        platforms: [linux, darwin]
+
+  build:
+    desc: Build web and backend artifacts
+    cmds:
+      - pnpm --filter @naira/design-tokens build
+      - pnpm --filter site build
+      - pnpm --filter workspace build
+      - task api:build
+
+  docker:build:
+    desc: Build application Docker images
+    cmds:
+      - cmd: powershell -File infra/ci/build-images.ps1
+        platforms: [windows]
+      - cmd: sh infra/ci/build-images.sh
+        platforms: [linux, darwin]
+
+  security:
+    desc: Run dependency and image security scans
+    cmds:
+      - cmd: powershell -File infra/ci/security.ps1
+        platforms: [windows]
+      - cmd: sh infra/ci/security.sh
+        platforms: [linux, darwin]
+
+  sbom:
+    desc: Generate image SBOM artifacts
+    cmds:
+      - cmd: powershell -File infra/ci/sbom.ps1
+        platforms: [windows]
+      - cmd: sh infra/ci/sbom.sh
+        platforms: [linux, darwin]
+
+  smoke:
+    desc: Run post-deploy smoke checks
+    cmds:
+      - cmd: powershell -File infra/ci/smoke.ps1
+        platforms: [windows]
+      - cmd: sh infra/ci/smoke.sh
+        platforms: [linux, darwin]
+
+  release:
+    desc: Validate and package a release
+    cmds:
+      - cmd: powershell -File infra/ci/release.ps1
+        platforms: [windows]
+      - cmd: sh infra/ci/release.sh
+        platforms: [linux, darwin]
+
   api:contract:check:
     desc: Validate and test the OpenAPI contract
     cmds:
