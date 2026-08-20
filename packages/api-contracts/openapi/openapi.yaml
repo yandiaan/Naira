@@ -1,0 +1,147 @@
+openapi: 3.1.0
+info:
+  title: Naira API
+  version: 0.1.0
+  description: Foundation API contract for Naira clients.
+  license:
+    name: UNLICENSED
+    identifier: LicenseRef-Naira-Internal
+servers:
+  - url: /api/v1
+paths:
+  /health/live:
+    get:
+      operationId: getLiveHealth
+      summary: Get process liveness
+      security: []
+      responses:
+        '200':
+          description: The API process is alive.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /health/ready:
+    get:
+      operationId: getReadyHealth
+      summary: Get dependency readiness
+      security: []
+      responses:
+        '200':
+          description: All required dependencies are ready.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadyResponse'
+        '503':
+          description: One or more dependencies are unavailable.
+          headers:
+            X-Request-ID:
+              $ref: '#/components/headers/RequestId'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /version:
+    get:
+      operationId: getVersion
+      summary: Get build metadata
+      security: []
+      responses:
+        '200':
+          description: Build metadata.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildInfo'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  headers:
+    RequestId:
+      description: Correlation identifier for the request.
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 128
+  responses:
+    BadRequest:
+      description: The request is invalid.
+      headers:
+        X-Request-ID:
+          $ref: '#/components/headers/RequestId'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    InternalError:
+      description: Unexpected server error.
+      headers:
+        X-Request-ID:
+          $ref: '#/components/headers/RequestId'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  schemas:
+    BuildInfo:
+      type: object
+      required: [service, version, gitSha, buildTime]
+      properties:
+        service:
+          type: string
+        version:
+          type: string
+        gitSha:
+          type: string
+        buildTime:
+          type: string
+    HealthResponse:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          const: ok
+    ReadyResponse:
+      type: object
+      required: [status, checks]
+      properties:
+        status:
+          type: string
+          const: ready
+        checks:
+          type: object
+          additionalProperties:
+            type: string
+            enum: [ok, unavailable]
+    ErrorEnvelope:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message, details, requestId]
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            details:
+              type: object
+              additionalProperties: true
+            requestId:
+              type: string

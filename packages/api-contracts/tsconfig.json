@@ -1,0 +1,7 @@
+{
+  "extends": "@naira/tsconfig/base.json",
+  "compilerOptions": {
+    "types": ["node", "vitest"]
+  },
+  "include": ["src/**/*.ts", "generated/**/*.ts", "test/**/*.ts"]
+}

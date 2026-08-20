@@ -1,0 +1,26 @@
+{
+  "name": "@naira/api-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "test": "redocly lint openapi/openapi.yaml && vitest run",
+    "check": "tsc --noEmit"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./openapi.yaml": "./openapi/openapi.yaml"
+  },
+  "dependencies": {
+    "openapi-fetch": "0.17.0"
+  },
+  "devDependencies": {
+    "@naira/tsconfig": "workspace:*",
+    "@redocly/cli": "2.46.2",
+    "@types/node": "26.2.0",
+    "openapi-typescript": "7.13.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
+  }
+}

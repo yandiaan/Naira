@@ -53,3 +53,13 @@ tasks:
     cmds:
       - go build ./cmd/api
       - go build ./cmd/worker
+
+  api:contract:check:
+    desc: Validate and test the OpenAPI contract
+    cmds:
+      - pnpm --dir packages/api-contracts test
+
+  api:contract:generate:
+    desc: Generate TypeScript API contract files
+    cmds:
+      - pnpm --dir packages/api-contracts generate
