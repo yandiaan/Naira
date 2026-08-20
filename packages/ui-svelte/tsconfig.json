@@ -1,0 +1,8 @@
+{
+  "extends": "@naira/tsconfig/base.json",
+  "compilerOptions": {
+    "types": ["node", "vitest", "@testing-library/jest-dom"],
+    "allowJs": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.svelte", "test/**/*.ts", "vitest.config.ts"]
+}

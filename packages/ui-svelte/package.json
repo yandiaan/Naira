@@ -1,0 +1,29 @@
+{
+  "name": "@naira/ui-svelte",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run",
+    "build": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "@naira/design-tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "svelte": "5.56.9"
+  },
+  "devDependencies": {
+    "@naira/tsconfig": "workspace:*",
+    "@sveltejs/vite-plugin-svelte": "7.3.0",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/svelte": "5.4.2",
+    "@types/node": "26.2.0",
+    "jsdom": "30.0.1",
+    "svelte": "5.56.9",
+    "svelte-check": "4.7.6",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
+  }
+}

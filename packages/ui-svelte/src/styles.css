@@ -1,0 +1,10 @@
+@import '@naira/design-tokens/tokens.css';
+
+:where(button, input, a):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--naira-color-action-primary) 45%, transparent);
+  outline-offset: 2px;
+}
+
+:where(button, input) {
+  font: inherit;
+}
