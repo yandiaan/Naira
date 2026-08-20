@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+.svelte-kit
+.astro
+coverage
+test-results
+playwright-report
+generated
+pnpm-lock.yaml
+docs/superpowers

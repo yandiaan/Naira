@@ -12,6 +12,10 @@ importers:
         specifier: 3.9.6
         version: 3.9.6
 
+  packages/eslint-config: {}
+
+  packages/tsconfig: {}
+
 packages:
 
   prettier@3.9.6:

@@ -1,0 +1,8 @@
+{
+  "name": "@naira/eslint-config",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./base.mjs"
+  }
+}
