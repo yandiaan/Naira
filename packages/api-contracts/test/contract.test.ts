@@ -10,6 +10,8 @@ describe('OpenAPI generated contract', () => {
     expect(generatedTypes).toContain('getLiveHealth');
     expect(generatedTypes).toContain('getReadyHealth');
     expect(generatedTypes).toContain('getVersion');
+    expect(generatedTypes).toContain('MutationRequest');
+    expect(generatedTypes).toContain('ChangePage');
   });
 
   it('exports a typed client factory', () => {

@@ -83,6 +83,41 @@ export interface components {
                 requestId: string;
             };
         };
+        MutationRequest: {
+            mutationId: string;
+            entityId: string;
+            expectedVersion: number;
+            /** @enum {string} */
+            operation: "create" | "update" | "delete";
+            payload?: {
+                [key: string]: unknown;
+            };
+        };
+        MutationResult: {
+            /** @enum {string} */
+            status: "applied" | "conflict" | "rejected";
+            entityId: string;
+            serverVersion?: number;
+        };
+        Conflict: {
+            code: string;
+            entityId: string;
+            serverVersion: number;
+        };
+        ChangeCursor: string;
+        ChangeRecord: {
+            entityId: string;
+            version: number;
+            deleted: boolean;
+            payload?: {
+                [key: string]: unknown;
+            };
+        };
+        ChangePage: {
+            changes: components["schemas"]["ChangeRecord"][];
+            nextCursor: components["schemas"]["ChangeCursor"];
+            hasMore: boolean;
+        };
     };
     responses: {
         /** @description The request is invalid. */

@@ -145,3 +145,71 @@ components:
               additionalProperties: true
             requestId:
               type: string
+    MutationRequest:
+      type: object
+      required: [mutationId, entityId, expectedVersion, operation]
+      properties:
+        mutationId:
+          type: string
+        entityId:
+          type: string
+        expectedVersion:
+          type: integer
+          minimum: 0
+        operation:
+          type: string
+          enum: [create, update, delete]
+        payload:
+          type: object
+          additionalProperties: true
+    MutationResult:
+      type: object
+      required: [status, entityId]
+      properties:
+        status:
+          type: string
+          enum: [applied, conflict, rejected]
+        entityId:
+          type: string
+        serverVersion:
+          type: integer
+          minimum: 0
+    Conflict:
+      type: object
+      required: [code, entityId, serverVersion]
+      properties:
+        code:
+          type: string
+        entityId:
+          type: string
+        serverVersion:
+          type: integer
+          minimum: 0
+    ChangeCursor:
+      type: string
+    ChangeRecord:
+      type: object
+      required: [entityId, version, deleted]
+      properties:
+        entityId:
+          type: string
+        version:
+          type: integer
+          minimum: 0
+        deleted:
+          type: boolean
+        payload:
+          type: object
+          additionalProperties: true
+    ChangePage:
+      type: object
+      required: [changes, nextCursor, hasMore]
+      properties:
+        changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChangeRecord'
+        nextCursor:
+          $ref: '#/components/schemas/ChangeCursor'
+        hasMore:
+          type: boolean
