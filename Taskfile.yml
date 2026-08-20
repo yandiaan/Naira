@@ -54,6 +54,12 @@ tasks:
       - go build ./cmd/api
       - go build ./cmd/worker
 
+  api:migrate:
+    desc: Apply PostgreSQL migrations
+    dir: services/api
+    cmds:
+      - go run ./cmd/migrate
+
   api:contract:check:
     desc: Validate and test the OpenAPI contract
     cmds:
