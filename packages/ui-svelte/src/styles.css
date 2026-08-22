@@ -1,10 +1,68 @@
+@import 'tailwindcss';
 @import '@naira/design-tokens/tokens.css';
+@import '@fontsource-variable/plus-jakarta-sans';
 
-:where(button, input, a):focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--naira-color-action-primary) 45%, transparent);
+@source '../lib';
+@source '../stories';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --font-sans: var(--naira-typography-font-family-sans);
+  --color-surface-canvas: var(--naira-color-surface-canvas);
+  --color-surface-elevated: var(--naira-color-surface-elevated);
+  --color-content-primary: var(--naira-color-content-primary);
+  --color-content-muted: var(--naira-color-content-muted);
+  --color-content-on-action: var(--naira-color-content-on-action);
+  --color-border-default: var(--naira-color-border-default);
+  --color-border-strong: var(--naira-color-border-strong);
+  --color-action-primary: var(--naira-color-action-primary);
+  --color-action-accent: var(--naira-color-action-accent);
+  --color-status-success: var(--naira-color-status-success);
+  --color-status-warning: var(--naira-color-status-warning);
+  --color-status-danger: var(--naira-color-status-danger);
+  --color-status-info: var(--naira-color-status-info);
+  --color-focus-indicator: var(--naira-color-focus-indicator);
+  --spacing-1: var(--naira-spacing-1);
+  --spacing-2: var(--naira-spacing-2);
+  --spacing-3: var(--naira-spacing-3);
+  --spacing-4: var(--naira-spacing-4);
+  --spacing-6: var(--naira-spacing-6);
+  --spacing-8: var(--naira-spacing-8);
+  --spacing-10: var(--naira-spacing-10);
+  --spacing-12: var(--naira-spacing-12);
+  --spacing-16: var(--naira-spacing-16);
+  --radius-sm: var(--naira-radius-sm);
+  --radius-md: var(--naira-radius-md);
+  --radius-lg: var(--naira-radius-lg);
+  --radius-xl: var(--naira-radius-xl);
+  --radius-full: var(--naira-radius-full);
+  --shadow-sm: var(--naira-elevation-sm);
+  --shadow-md: var(--naira-elevation-md);
+  --shadow-lg: var(--naira-elevation-lg);
+  --ease-standard: var(--naira-motion-ease-standard);
+  --ease-emphasized: var(--naira-motion-ease-emphasized);
+  --transition-duration-fast: var(--naira-motion-duration-fast);
+  --transition-duration-normal: var(--naira-motion-duration-normal);
+  --transition-duration-slow: var(--naira-motion-duration-slow);
+}
+
+:where(button, input, textarea, select, a):focus-visible {
+  outline: 3px solid var(--naira-color-focus-indicator);
   outline-offset: 2px;
 }
 
-:where(button, input) {
+:where(button, input, textarea, select) {
   font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
