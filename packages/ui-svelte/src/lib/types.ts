@@ -33,3 +33,16 @@ export type StepItem = {
   label: string;
   status: 'complete' | 'current' | 'upcoming';
 };
+
+export type TableColumn = { key: string; label: string };
+
+export type TableRow = Record<string, string | number>;
+
+export type ListItem = { id: string; label: string; description?: string };
+
+export type TimelineItem = {
+  id: string;
+  title: string;
+  time: string;
+  status?: ComponentTone;
+};

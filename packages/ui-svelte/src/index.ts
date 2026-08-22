@@ -37,12 +37,18 @@ export { default as Stepper } from './lib/Stepper.svelte';
 export { default as Tabs } from './lib/Tabs.svelte';
 export { default as Tooltip } from './lib/Tooltip.svelte';
 export { default as Divider } from './lib/Divider.svelte';
+export { default as FilterBar } from './lib/FilterBar.svelte';
 export { default as Inline } from './lib/Inline.svelte';
 export { default as Icon } from './lib/Icon.svelte';
 export { default as IconButton } from './lib/IconButton.svelte';
+export { default as List } from './lib/List.svelte';
+export { default as Metric } from './lib/Metric.svelte';
+export { default as SearchInput } from './lib/SearchInput.svelte';
 export { default as Stack } from './lib/Stack.svelte';
 export { default as Surface } from './lib/Surface.svelte';
 export { default as VisuallyHidden } from './lib/VisuallyHidden.svelte';
+export { default as Table } from './lib/Table.svelte';
+export { default as Timeline } from './lib/Timeline.svelte';
 export type {
   AccordionItem,
   BreadcrumbItem,
@@ -54,5 +60,8 @@ export type {
   SelectOption,
   StepItem,
   SyncState,
+  TableColumn,
+  TableRow,
   TabItem,
+  TimelineItem,
 } from './lib/types';
