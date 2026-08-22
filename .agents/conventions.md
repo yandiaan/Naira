@@ -48,6 +48,16 @@ SOLID never overrides readability or YAGNI. An abstraction with one consumer and
   state matrix in Storybook.
 - Generic patterns must not contain product API or business workflow logic.
 
+## Code comments
+
+- Do not add inline comments to implementation code.
+- Use JSDoc only for TypeScript public APIs, non-obvious contracts, or generated
+  documentation.
+- Use Go Doc for exported Go packages, types, functions, methods, and constants.
+- Prefer intention-revealing names and tests over comments that restate code.
+- If a non-obvious decision needs explanation, document it in the relevant
+  agent guide, design document, or ADR instead of adding an inline comment.
+
 ## Go
 
 - Run gofmt, go vet, and static analysis.
