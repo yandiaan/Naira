@@ -21,6 +21,13 @@ describe('workspace shell boundaries', () => {
     expect(adminShell).toContain('Administration shell');
   });
 
+  it('defines adaptive navigation and density contracts', () => {
+    expect(appShell).toContain('Planner mobile navigation');
+    expect(appShell).toContain('data-density');
+    expect(adminShell).toContain('Administration mobile navigation');
+    expect(adminShell).toContain('data-density="compact"');
+  });
+
   it('does not write access tokens to browser storage', async () => {
     expect(`${appShell}${adminShell}${source}`).not.toContain('localStorage.setItem');
   });
