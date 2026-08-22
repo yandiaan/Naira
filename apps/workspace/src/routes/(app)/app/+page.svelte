@@ -1,42 +1,25 @@
 <script lang="ts">
-  import { EmptyState } from '@naira/ui-svelte';
+  import { pilotChecklist, pilotItinerary, pilotTrip } from '../../../lib/fixtures/planner-pilot';
+  import GearChecklistRecipe from '../../../lib/recipes/GearChecklistRecipe.svelte';
+  import ItineraryRecipe from '../../../lib/recipes/ItineraryRecipe.svelte';
+  import TripSummaryRecipe from '../../../lib/recipes/TripSummaryRecipe.svelte';
 </script>
 
-<section class="page" aria-labelledby="planner-title">
-  <p class="eyebrow">Foundation shell</p>
-  <h1 id="planner-title">Planner workspace</h1>
-  <p class="lead">Ruang kerja untuk menyiapkan perjalanan outdoor dengan lebih terarah.</p>
-  <EmptyState
-    title="Planner foundation siap"
-    description="Trip, gear, itinerary, dan logistics akan masuk sebagai feature module terpisah."
-  />
+<section class="grid gap-6" aria-labelledby="planner-title">
+  <div>
+    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-action-primary">
+      Planner workspace
+    </p>
+    <h1 id="planner-title" class="mt-2 text-4xl font-bold text-content-primary md:text-6xl">
+      Siapkan perjalanan dengan lebih terarah.
+    </h1>
+    <p class="mt-3 max-w-2xl text-lg text-content-muted">
+      Pilot surface untuk trip summary, gear, itinerary, dan sync state.
+    </p>
+  </div>
+  <TripSummaryRecipe trip={pilotTrip} />
+  <div class="grid gap-6 lg:grid-cols-2">
+    <GearChecklistRecipe checklist={pilotChecklist} />
+    <ItineraryRecipe itinerary={pilotItinerary} />
+  </div>
 </section>
-
-<style>
-  .page {
-    display: grid;
-    gap: var(--naira-spacing-4);
-  }
-
-  h1,
-  p {
-    margin: 0;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 7vw, 4rem);
-  }
-
-  .eyebrow {
-    color: var(--naira-color-action-primary);
-    font-size: var(--naira-typography-font-size-sm);
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .lead {
-    color: var(--naira-color-content-muted);
-    font-size: var(--naira-typography-font-size-lg);
-  }
-</style>
