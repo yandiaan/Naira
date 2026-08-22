@@ -125,6 +125,7 @@ git commit -m "docs(ui): Define Naira color system"
 **Files:**
 - Modify: \`packages/design-tokens/tokens.json\`
 - Modify: \`packages/design-tokens/scripts/token-engine.mjs\`
+- Modify: \`packages/design-tokens/scripts/token-engine.d.mts\`
 - Modify: \`packages/design-tokens/scripts/build.mjs\`
 - Modify: \`packages/design-tokens/src/index.ts\`
 - Modify: \`packages/design-tokens/test/build.test.ts\`

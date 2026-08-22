@@ -12,8 +12,8 @@ describe('design token engine', () => {
   it('resolves required semantic tokens', () => {
     const resolved = resolveTokens(tokenSource);
 
-    expect(resolved['color.semantic.surface-default']).toBe('#ffffff');
-    expect(resolved['color.semantic.action-primary']).toBe('#2563eb');
+    expect(resolved['color.semantic.surface-default']).toBe('#FFFFFF');
+    expect(resolved['color.semantic.action-primary']).toBe('#195C47');
   });
 
   it('rejects unresolved semantic references', () => {
