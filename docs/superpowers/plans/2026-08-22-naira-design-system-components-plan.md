@@ -39,7 +39,7 @@ and the foundation outputs from the foundations plan.
 ### Task 1: Establish component API conventions and internal helpers
 
 **Files:**
-- Create: packages/ui-svelte/src/lib/types.ts
+- Modify: packages/ui-svelte/src/lib/types.ts
 - Create: packages/ui-svelte/src/lib/internal/classNames.ts
 - Create: packages/ui-svelte/test/component-api.test.ts
 - Modify: packages/ui-svelte/src/index.ts
@@ -66,8 +66,9 @@ it('joins only present class names', () => {
 
 - [ ] Step 2: Run pnpm --filter @naira/ui-svelte exec vitest run test/component-api.test.ts and verify it fails because the helper does not exist.
 
-- [ ] Step 3: Implement the helper and shared unions. Keep cx local and
-  explicit. Do not introduce a class-variance framework.
+- [ ] Step 3: Keep the shared unions from the foundations phase and implement
+  the helper. Keep cx local and explicit. Do not introduce a class-variance
+  framework.
 
 - [ ] Step 4: Run pnpm --filter @naira/ui-svelte test and
   pnpm --filter @naira/ui-svelte check. Expected: PASS.

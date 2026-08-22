@@ -342,6 +342,7 @@ git commit -m "feat(ui): Integrate Tailwind with tokens"
 - Create: \`packages/ui-svelte/src/lib/Stack.svelte\`
 - Create: \`packages/ui-svelte/src/lib/Inline.svelte\`
 - Create: \`packages/ui-svelte/src/lib/Divider.svelte\`
+- Create: \`packages/ui-svelte/src/lib/types.ts\`
 - Create: \`packages/ui-svelte/test/layout-foundations.test.ts\`
 
 **Interfaces:**
