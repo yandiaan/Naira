@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 set -eu
+node scripts/release-components.mjs
 task release:validate
 task release:version
 task build
