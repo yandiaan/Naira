@@ -1,0 +1,20 @@
+---
+import DiscoveryCard from './DiscoveryCard.astro';
+
+interface Feature {
+  eyebrow: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+interface Props {
+  features: Feature[];
+}
+
+const { features } = Astro.props;
+---
+
+<div class="grid gap-4 md:grid-cols-3">
+  {features.map((feature) => <DiscoveryCard {...feature} />)}
+</div>

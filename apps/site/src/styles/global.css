@@ -3,8 +3,8 @@
 
 :root {
   font-family: var(--naira-typography-font-family-sans);
-  color: var(--naira-color-content-default);
-  background: var(--naira-color-surface-default);
+  color: var(--naira-color-content-primary);
+  background: var(--naira-color-surface-canvas);
 }
 
 * {
@@ -14,7 +14,7 @@
 body {
   min-width: 320px;
   margin: 0;
-  background: var(--naira-color-surface-default);
+  background: var(--naira-color-surface-canvas);
 }
 
 .skip-link {

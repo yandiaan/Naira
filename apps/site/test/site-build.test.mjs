@@ -6,6 +6,7 @@ import test from 'node:test';
 test('built public page contains the Naira foundation shell', async () => {
   const html = await readFile(resolve('dist/index.html'), 'utf8');
 
-  assert.match(html, /<h1[^>]*>Naira<\/h1>/u);
+  assert.match(html, /<h1[^>]*>Rencanakan perjalanan/u);
   assert.match(html, /Rencanakan perjalanan outdoor/u);
+  assert.match(html, /href="\/app"/u);
 });

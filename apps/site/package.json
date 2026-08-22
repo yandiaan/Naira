@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "check": "astro check",
-    "test": "node --test test/site-build.test.mjs"
+    "test": "node --test test/site-build.test.mjs test/public-pilot.test.mjs"
   },
   "dependencies": {
     "@naira/design-tokens": "workspace:*",
