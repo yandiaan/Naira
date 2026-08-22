@@ -15,4 +15,4 @@ export { default as IconButton } from './lib/IconButton.svelte';
 export { default as Stack } from './lib/Stack.svelte';
 export { default as Surface } from './lib/Surface.svelte';
 export { default as VisuallyHidden } from './lib/VisuallyHidden.svelte';
-export type { ComponentTone, ControlSize, Density } from './lib/types';
+export type { ComponentTone, ControlSize, Density, SyncState } from './lib/types';

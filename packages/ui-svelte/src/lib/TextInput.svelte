@@ -1,51 +1,45 @@
 <script lang="ts">
+  import type { Density } from './types';
+
   export let id = 'naira-input';
   export let label: string;
   export let value = '';
+  export let description = '';
   export let error: string | null = null;
+  export let required = false;
   export let disabled = false;
+  export let readonly = false;
+  export let density: Density = 'comfortable';
+
+  $: descriptionId = `${id}-description`;
+  $: errorId = `${id}-error`;
+  $: describedBy =
+    [description ? descriptionId : '', error ? errorId : ''].filter(Boolean).join(' ') || undefined;
 </script>
 
-<div class="naira-field">
-  <label for={id}>{label}</label>
+<div class="grid gap-2" data-density={density}>
+  <label class="font-semibold text-content-primary" for={id}>
+    {label}
+    {#if required}<span aria-hidden="true"> *</span>{/if}
+  </label>
+
+  {#if description}
+    <p id={descriptionId} class="text-sm text-content-muted">{description}</p>
+  {/if}
+
   <input
     {id}
     bind:value
     {disabled}
+    {readonly}
+    {required}
+    class="min-h-11 rounded-md border border-border-default bg-surface-elevated px-3 text-content-primary transition-colors duration-fast placeholder:text-content-muted focus:border-action-primary disabled:cursor-not-allowed disabled:opacity-60"
     aria-invalid={error ? 'true' : undefined}
-    aria-describedby={error ? `${id}-error` : undefined}
+    aria-describedby={describedBy}
+    aria-readonly={readonly ? 'true' : undefined}
   />
+
   {#if error}
-    <p id={`${id}-error`} class="naira-field__error" role="alert">{error}</p>
+    <p id={errorId} class="text-sm text-status-danger" role="alert">{error}</p>
   {/if}
 </div>
-
-<style>
-  .naira-field {
-    display: grid;
-    gap: var(--naira-spacing-2);
-  }
-
-  label {
-    color: var(--naira-color-content-default);
-    font-weight: 700;
-  }
-
-  input {
-    min-height: 44px;
-    border: 1px solid var(--naira-color-border-default);
-    border-radius: var(--naira-radius-md);
-    padding: 0 var(--naira-spacing-3);
-    color: var(--naira-color-content-default);
-  }
-
-  input[aria-invalid='true'] {
-    border-color: var(--naira-color-feedback-danger);
-  }
-
-  .naira-field__error {
-    margin: 0;
-    color: var(--naira-color-feedback-danger);
-    font-size: var(--naira-typography-font-size-sm);
-  }
-</style>

@@ -13,3 +13,11 @@ it('disables a loading button', () => {
 
   expect(screen.getByRole('button', { name: 'Save' })).toBeDisabled();
 });
+
+it('keeps a compact large button accessible', () => {
+  render(Button, { props: { label: 'Save', size: 'lg', density: 'compact' } });
+
+  const button = screen.getByRole('button', { name: 'Save' });
+  expect(button).toHaveAttribute('data-density', 'compact');
+  expect(button).toHaveClass('min-h-12');
+});

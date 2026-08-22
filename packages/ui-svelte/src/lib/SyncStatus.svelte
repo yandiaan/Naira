@@ -1,30 +1,39 @@
 <script lang="ts">
-  export let status: 'idle' | 'syncing' | 'synced' | 'conflict' = 'idle';
+  import type { SyncState } from './types';
 
-  const labels = {
+  export let status: SyncState = 'idle';
+
+  const labels: Record<SyncState, string> = {
     idle: 'Not synced',
+    dirty: 'Unsaved changes',
+    saving: 'Saving',
+    queued: 'Waiting to sync',
     syncing: 'Syncing',
     synced: 'Synced',
+    offline: 'Offline',
+    'retryable-failure': 'Retry sync',
+    blocked: 'Sync blocked',
     conflict: 'Conflict',
-  } as const;
+  };
+
+  const toneClasses: Record<SyncState, string> = {
+    idle: 'text-content-muted',
+    dirty: 'text-status-warning',
+    saving: 'text-action-primary',
+    queued: 'text-status-warning',
+    syncing: 'text-action-primary',
+    synced: 'text-status-success',
+    offline: 'text-status-warning',
+    'retryable-failure': 'text-status-danger',
+    blocked: 'text-status-danger',
+    conflict: 'text-status-danger',
+  };
 </script>
 
-<span class={`naira-sync naira-sync--${status}`} role="status">{labels[status]}</span>
-
-<style>
-  .naira-sync {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--naira-spacing-1);
-    font-size: var(--naira-typography-font-size-sm);
-    font-weight: 700;
-  }
-
-  .naira-sync--synced {
-    color: var(--naira-color-feedback-success);
-  }
-
-  .naira-sync--conflict {
-    color: var(--naira-color-feedback-danger);
-  }
-</style>
+<span
+  class={`inline-flex items-center gap-1 text-sm font-semibold ${toneClasses[status]}`}
+  role="status"
+  aria-live="polite"
+>
+  {labels[status]}
+</span>

@@ -21,3 +21,29 @@ it('shows sync conflict status', () => {
 
   expect(screen.getByRole('status')).toHaveTextContent('Conflict');
 });
+
+it('links input description and error to the control', () => {
+  render(TextInput, {
+    props: {
+      label: 'Name',
+      description: 'Use your trail name',
+      error: 'Name is required',
+    },
+  });
+
+  expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+    'Use your trail name Name is required',
+  );
+});
+
+it('shows a custom offline message', () => {
+  render(OfflineBanner, { props: { online: false, message: 'Draft saved on this device' } });
+
+  expect(screen.getByRole('status')).toHaveTextContent('Draft saved on this device');
+});
+
+it('shows a retryable sync state', () => {
+  render(SyncStatus, { props: { status: 'retryable-failure' } });
+
+  expect(screen.getByRole('status')).toHaveTextContent(/retry/i);
+});
