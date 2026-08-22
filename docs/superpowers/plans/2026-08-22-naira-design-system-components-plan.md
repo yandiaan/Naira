@@ -73,7 +73,7 @@ it('joins only present class names', () => {
   pnpm --filter @naira/ui-svelte check. Expected: PASS.
 
 - [ ] Step 5: Commit with:
-  
+
 ~~~powershell
 git add packages/ui-svelte
 git commit -m "refactor(ui): Define component API conventions"
@@ -140,7 +140,7 @@ it('shows a retryable sync state', () => {
 - [ ] Step 4: Run pnpm --filter @naira/ui-svelte test and check. Expected: PASS.
 
 - [ ] Step 5: Commit with:
-  
+
 ~~~powershell
 git add packages/ui-svelte
 git commit -m "refactor(ui): Align primitives with state contracts"
