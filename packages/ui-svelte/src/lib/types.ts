@@ -15,3 +15,21 @@ export type SyncState =
   | 'retryable-failure'
   | 'blocked'
   | 'conflict';
+
+export type SelectOption = { value: string; label: string; disabled?: boolean };
+
+export type ComboboxOption = { value: string; label: string };
+
+export type MenuItem = { id: string; label: string; disabled?: boolean };
+
+export type TabItem = { id: string; label: string; disabled?: boolean };
+
+export type AccordionItem = { id: string; title: string; content: string };
+
+export type BreadcrumbItem = { label: string; href?: string };
+
+export type StepItem = {
+  id: string;
+  label: string;
+  status: 'complete' | 'current' | 'upcoming';
+};
