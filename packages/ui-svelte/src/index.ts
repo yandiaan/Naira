@@ -1,6 +1,9 @@
 import './styles.css';
 
 export { default as Badge } from './lib/Badge.svelte';
+export { default as Alert } from './lib/Alert.svelte';
+export { default as AsyncState } from './lib/AsyncState.svelte';
+export { default as Banner } from './lib/Banner.svelte';
 export { default as Button } from './lib/Button.svelte';
 export { default as Card } from './lib/Card.svelte';
 export { default as Checkbox } from './lib/Checkbox.svelte';
@@ -11,12 +14,16 @@ export { default as Heading } from './lib/Heading.svelte';
 export { default as OfflineBanner } from './lib/OfflineBanner.svelte';
 export { default as Link } from './lib/Link.svelte';
 export { default as NumberInput } from './lib/NumberInput.svelte';
+export { default as Progress } from './lib/Progress.svelte';
 export { default as Radio } from './lib/Radio.svelte';
+export { default as Skeleton } from './lib/Skeleton.svelte';
+export { default as Spinner } from './lib/Spinner.svelte';
 export { default as SyncStatus } from './lib/SyncStatus.svelte';
 export { default as Switch } from './lib/Switch.svelte';
 export { default as Text } from './lib/Text.svelte';
 export { default as TextInput } from './lib/TextInput.svelte';
 export { default as Textarea } from './lib/Textarea.svelte';
+export { default as Toast } from './lib/Toast.svelte';
 export { default as Divider } from './lib/Divider.svelte';
 export { default as Inline } from './lib/Inline.svelte';
 export { default as Icon } from './lib/Icon.svelte';
