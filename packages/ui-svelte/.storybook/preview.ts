@@ -3,9 +3,19 @@ import '../src/styles.css';
 
 const preview: Preview = {
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    backgrounds: {
+      default: 'canvas',
+      values: [
+        { name: 'canvas', value: '#FAF8F1' },
+        { name: 'night', value: '#121A16' },
+      ],
+    },
     viewport: {
       defaultViewport: 'mobile1',
+    },
+    a11y: {
+      test: 'todo',
     },
     controls: {
       matchers: {
