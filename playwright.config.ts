@@ -18,6 +18,10 @@ export default defineConfig({
       name: 'workspace',
       use: { ...devices['Desktop Chrome'], baseURL: 'http://127.0.0.1:5174' },
     },
+    {
+      name: 'storybook',
+      use: { ...devices['Desktop Chrome'], baseURL: 'http://127.0.0.1:6006' },
+    },
   ],
   webServer: [
     {
@@ -31,6 +35,11 @@ export default defineConfig({
     {
       command: 'pnpm --dir apps/workspace dev --host 127.0.0.1 --port 5174',
       url: 'http://127.0.0.1:5174/app',
+      reuseExistingServer: !process.env.CI,
+    },
+    {
+      command: 'pnpm --dir packages/ui-svelte exec storybook dev -c .storybook --ci --port 6006',
+      url: 'http://127.0.0.1:6006',
       reuseExistingServer: !process.env.CI,
     },
   ],

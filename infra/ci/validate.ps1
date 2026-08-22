@@ -9,6 +9,16 @@ pnpm exec commitlint --from=HEAD~1 --to=HEAD
 Assert-NativeSuccess
 pnpm exec prettier --check .
 Assert-NativeSuccess
+task docs:check
+Assert-NativeSuccess
+task ui:check
+Assert-NativeSuccess
+task ui:a11y
+Assert-NativeSuccess
+task ui:visual
+Assert-NativeSuccess
+task web:test:e2e
+Assert-NativeSuccess
 pnpm --filter @naira/design-tokens build
 Assert-NativeSuccess
 pnpm --filter @naira/design-tokens check

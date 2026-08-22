@@ -45,6 +45,23 @@ tasks:
       - task ui:styles:check
       - task ui:workbench:build
 
+  ui:a11y:
+    desc: Run design-system accessibility browser checks
+    cmds:
+      - pnpm exec playwright test tests/e2e/design-system-a11y.spec.ts
+      - pnpm exec playwright test tests/e2e/storybook.spec.ts
+
+  ui:visual:
+    desc: Run design-system visual browser checks
+    cmds:
+      - pnpm exec playwright test tests/e2e/design-system-visual.spec.ts
+
+  docs:check:
+    desc: Validate local documentation links and formatting
+    cmds:
+      - node scripts/check-doc-links.mjs
+      - pnpm exec prettier --check docs
+
   ui:workbench:build:
     desc: Build the Svelte component workbench
     cmds:

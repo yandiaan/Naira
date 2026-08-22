@@ -3,6 +3,11 @@ set -eu
 
 pnpm exec commitlint --from=HEAD~1 --to=HEAD
 pnpm exec prettier --check .
+task docs:check
+task ui:check
+task ui:a11y
+task ui:visual
+task web:test:e2e
 pnpm --filter @naira/design-tokens build
 pnpm --filter @naira/design-tokens check
 pnpm --filter @naira/design-tokens test
