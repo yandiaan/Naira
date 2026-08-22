@@ -33,6 +33,8 @@
 
 - `task ui:tokens:check` validates generated CSS/Dart token outputs and token tests.
 - `task ui:check` validates UI typecheck, component tests, and Storybook build.
+- `node scripts/storybook-catalog.test.mjs` ensures every exported component
+  and pattern has a Storybook catalog story.
 - `task docs:check` validates local documentation links and formatting.
 - `task ui:a11y` runs axe checks for public, planner, admin, and Storybook pilots.
 - `task ui:visual` runs reviewed Playwright mobile visual baselines.

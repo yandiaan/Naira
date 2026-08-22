@@ -42,6 +42,7 @@ tasks:
     desc: Validate the UI package and workbench
     deps: [ui:tokens:check]
     cmds:
+      - node scripts/storybook-catalog.test.mjs
       - task ui:styles:check
       - task ui:workbench:build
 

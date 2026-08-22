@@ -2,6 +2,31 @@ import type { Preview } from '@storybook/svelte';
 import '../src/styles.css';
 
 const preview: Preview = {
+  globalTypes: {
+    theme: {
+      description: 'Naira color theme',
+      defaultValue: 'light',
+      toolbar: {
+        icon: 'paintbrush',
+        items: ['light', 'dark'],
+      },
+    },
+    density: {
+      description: 'Naira interaction density',
+      defaultValue: 'comfortable',
+      toolbar: {
+        icon: 'component',
+        items: ['comfortable', 'compact'],
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => {
+      document.documentElement.dataset.theme = context.globals.theme ?? 'light';
+      document.documentElement.dataset.density = context.globals.density ?? 'comfortable';
+      return Story();
+    },
+  ],
   parameters: {
     layout: 'padded',
     backgrounds: {
