@@ -31,6 +31,7 @@
   disabled={disabled || loading}
   data-density={density}
   aria-busy={loading}
+  data-state={loading ? 'loading' : disabled ? 'disabled' : 'idle'}
   aria-label={ariaLabel ?? label}
 >
   {#if loading}

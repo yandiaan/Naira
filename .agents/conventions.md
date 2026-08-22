@@ -48,6 +48,18 @@ SOLID never overrides readability or YAGNI. An abstraction with one consumer and
   state matrix in Storybook.
 - Generic patterns must not contain product API or business workflow logic.
 
+## Interactive component contracts
+
+- Interactive components expose explicit state through semantic attributes such
+  as `data-state`, `aria-expanded`, `aria-selected`, or `aria-invalid`.
+- Controlled values must update through native events or documented component
+  events; visual clicks must not silently leave state unchanged.
+- Dialogs, drawers, popovers, menus, tabs, and comboboxes must define keyboard,
+  Escape, focus, selection, and responsive behavior before visual polish is
+  considered complete.
+- Pagination and dismissible feedback must expose state changes through native
+  controls and semantic state attributes.
+
 ## Code comments
 
 - Do not add inline comments to implementation code.

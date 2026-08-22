@@ -41,6 +41,9 @@
 - Every component story covers the applicable state matrix, density, responsive,
   loading, error, empty, offline, and conflict states.
 - Astro dev tooling must not be captured in visual baselines.
+- Interaction hardening tests must cover keyboard selection, focus/close
+  behavior, controlled state updates, pagination, dismissible feedback, and
+  semantic state attributes for interactive components.
 
 ## Commands
 
