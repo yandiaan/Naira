@@ -25,4 +25,6 @@ applicable agent rule files in the same change when the rule, boundary, or
 quality expectation is affected. Do not leave implementation guidance stale.
 
 Code comment rule: do not add inline comments to code. The only permitted code
-comments are JSDoc for TypeScript APIs and Go Doc for exported Go declarations.
+comments are JSDoc for TypeScript APIs, Go Doc for exported Go declarations,
+and Dartdoc for Dart/Flutter APIs. Prefer `///` Dartdoc comments; `/** ... */`
+is accepted when required by an existing Dart API convention.

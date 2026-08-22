@@ -54,6 +54,9 @@ SOLID never overrides readability or YAGNI. An abstraction with one consumer and
 - Use JSDoc only for TypeScript public APIs, non-obvious contracts, or generated
   documentation.
 - Use Go Doc for exported Go packages, types, functions, methods, and constants.
+- Use Dartdoc for Dart/Flutter public APIs. Prefer `///`; `/** ... */` is
+  accepted when matching an existing Dart API convention.
+- Do not add `//` or block comments to Dart implementation code.
 - Prefer intention-revealing names and tests over comments that restate code.
 - If a non-obvious decision needs explanation, document it in the relevant
   agent guide, design document, or ADR instead of adding an inline comment.
