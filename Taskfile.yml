@@ -25,6 +25,26 @@ tasks:
     cmds:
       - pnpm --dir packages/ui-svelte exec storybook dev -c .storybook --port 6006
 
+  ui:tokens:check:
+    desc: Validate generated design tokens
+    cmds:
+      - pnpm --filter @naira/design-tokens build
+      - pnpm --filter @naira/design-tokens test
+      - pnpm --filter @naira/design-tokens check
+
+  ui:styles:check:
+    desc: Validate token-backed UI styles
+    cmds:
+      - pnpm --filter @naira/ui-svelte check
+      - pnpm --filter @naira/ui-svelte test
+
+  ui:check:
+    desc: Validate the UI package and workbench
+    deps: [ui:tokens:check]
+    cmds:
+      - task ui:styles:check
+      - task ui:workbench:build
+
   ui:workbench:build:
     desc: Build the Svelte component workbench
     cmds:
