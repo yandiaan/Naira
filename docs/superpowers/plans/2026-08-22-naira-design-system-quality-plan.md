@@ -222,6 +222,7 @@ git commit -m "ci(ui): Add design system quality gates"
 **Files:**
 - Create: docs/decisions/003-design-system-boundary.md
 - Create: scripts/architecture-docs.test.mjs
+- Modify: AGENTS.md
 - Modify: .agents/architecture.md
 - Modify: .agents/structure.md
 - Modify: .agents/conventions.md
@@ -236,6 +237,8 @@ git commit -m "ci(ui): Add design system quality gates"
   density, and no raw hex in component code.
 - Testing guide includes Storybook, axe, visual, state-matrix, and responsive
   checks.
+- Root AGENTS.md keeps the guide index and adds the design-system review
+  requirement for UI changes.
 
 - [ ] Step 1: Write scripts/architecture-docs.test.mjs so it reads the four
   guide files and ADR 003 and requires the boundary terms to appear.
@@ -245,8 +248,10 @@ git commit -m "ci(ui): Add design system quality gates"
 - [ ] Step 3: Add ADR 003 with status Accepted, date 2026-08-22, context,
   decision, rejected alternatives, consequences, and trigger for revisiting.
 
-- [ ] Step 4: Update the four normative guides without duplicating the whole
-  spec. Link to the design-system spec and implementation plans.
+- [ ] Step 4: Update AGENTS.md and the four normative guides without duplicating
+  the whole spec. Keep the root import index accurate, link to the design-system
+  spec and implementation plans, and document the design-system review
+  requirement for UI changes.
 
 - [ ] Step 5: Run task docs:check, task format, and git diff --check.
 
