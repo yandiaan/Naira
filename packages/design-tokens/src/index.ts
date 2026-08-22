@@ -11,3 +11,6 @@ export const semanticTokenNames = [
 ] as const;
 
 export type SemanticTokenName = (typeof semanticTokenNames)[number];
+
+export { contrastRatio, meetsContrast } from './contrast';
+export type { ContrastLevel } from './contrast';
