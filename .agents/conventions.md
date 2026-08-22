@@ -33,6 +33,21 @@ SOLID never overrides readability or YAGNI. An abstraction with one consumer and
 - Components use semantic HTML, accessible names, visible focus, and explicit loading/error/empty/offline states.
 - Formatter print width is 100.
 
+## Design system conventions
+
+- Use Plus Jakarta Sans through the generated typography tokens.
+- Use semantic tokens in components; raw hex and unmanaged spacing values are
+  not allowed in component source.
+- Tailwind utilities are backed by `packages/design-tokens`; do not create a
+  second theme in an application.
+- Components expose explicit variants, sizes, density, and applicable state
+  props. Avoid boolean flags that combine unrelated behaviors.
+- Use the Naira `Icon` wrapper instead of importing the base icon library in
+  product code.
+- Every component documents responsive behavior, accessibility, content, and
+  state matrix in Storybook.
+- Generic patterns must not contain product API or business workflow logic.
+
 ## Go
 
 - Run gofmt, go vet, and static analysis.

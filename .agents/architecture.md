@@ -37,3 +37,16 @@ adapters  -> ports
 - Synchronized entities use version and tombstone metadata where applicable.
 - Stale mutations return conflict instead of silently overwriting collaborative data.
 - Idempotency keys and mutation IDs are required for retryable writes.
+
+## Design system boundary
+
+- `packages/design-tokens` owns authored tokens and generated CSS/Dart outputs.
+- `packages/ui-svelte` owns opinionated accessible components and generic
+  patterns; it does not call APIs or own persistence, auth, or sync logic.
+- Tailwind CSS consumes generated semantic variables and is not a second token
+  source.
+- `apps/site` owns public composition; `apps/workspace` owns planner/admin
+  composition and domain recipes.
+- Domain recipes remain application-local until reuse across surfaces is proven.
+- Future Flutter consumes shared token decisions and Dart outputs while using
+  native behavior where it improves mobile ergonomics.

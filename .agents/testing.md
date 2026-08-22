@@ -29,6 +29,17 @@
 - Cover validation, authorization, conflicts, retries, dependency failures, and empty/error/offline UI states.
 - Do not inflate coverage with assertions that only inspect mocks or implementation details.
 
+## Design system checks
+
+- `task ui:tokens:check` validates generated CSS/Dart token outputs and token tests.
+- `task ui:check` validates UI typecheck, component tests, and Storybook build.
+- `task docs:check` validates local documentation links and formatting.
+- `task ui:a11y` runs axe checks for public, planner, admin, and Storybook pilots.
+- `task ui:visual` runs reviewed Playwright mobile visual baselines.
+- Every component story covers the applicable state matrix, density, responsive,
+  loading, error, empty, offline, and conflict states.
+- Astro dev tooling must not be captured in visual baselines.
+
 ## Commands
 
 Use the root Taskfile commands whenever available:
