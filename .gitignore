@@ -15,3 +15,4 @@ ci-artifacts/
 .task/
 bin/
 tmp/
+services/api/*.exe
