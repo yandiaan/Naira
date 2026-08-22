@@ -12,8 +12,9 @@ consumes semantic CSS variables through its Vite plugin and theme variables;
 Svelte components never become a second token source.
 
 **Tech Stack:** TypeScript, Node ESM, Tailwind CSS 4.3.3,
-\`@tailwindcss/vite\` 4.3.3, Plus Jakarta Sans variable font 5.3.0, Lucide
-Svelte 1.0.1, Vitest, CSS custom properties, and generated Dart output.
+\`@tailwindcss/vite\` 4.3.3, Plus Jakarta Sans variable font 5.3.0,
+\`@lucide/svelte\` 1.33.0, Vitest, CSS custom properties, and generated Dart
+output.
 
 **Spec:** [docs/superpowers/specs/2026-08-22-naira-design-system-design.md](../specs/2026-08-22-naira-design-system-design.md)
 
@@ -420,14 +421,14 @@ git commit -m "feat(ui): Add layout and typography foundations"
   \`label?: string\`, and \`decorative?: boolean\`.
 - \`IconButton\` requires an accessible \`label\`, accepts \`variant\`, \`size\`,
   and disabled/loading state, and delegates SVG rendering to \`Icon\`.
-- The base set is \`lucide-svelte@1.0.1\` behind the Naira API.
+- The base set is \`@lucide/svelte@1.33.0\` behind the Naira API.
 
 - [ ] **Step 1: Add the pinned icon dependency**
 
 Run:
 
 ~~~powershell
-pnpm add lucide-svelte@1.0.1 --filter @naira/ui-svelte
+pnpm add @lucide/svelte@1.33.0 --filter @naira/ui-svelte
 ~~~
 
 Record the ISC license and the wrapper rule in \`iconography.md\`.

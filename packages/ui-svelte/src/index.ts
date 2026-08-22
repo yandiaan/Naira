@@ -10,6 +10,8 @@ export { default as SyncStatus } from './lib/SyncStatus.svelte';
 export { default as TextInput } from './lib/TextInput.svelte';
 export { default as Divider } from './lib/Divider.svelte';
 export { default as Inline } from './lib/Inline.svelte';
+export { default as Icon } from './lib/Icon.svelte';
+export { default as IconButton } from './lib/IconButton.svelte';
 export { default as Stack } from './lib/Stack.svelte';
 export { default as Surface } from './lib/Surface.svelte';
 export { default as VisuallyHidden } from './lib/VisuallyHidden.svelte';
